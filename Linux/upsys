@@ -5,5 +5,10 @@ apt upgrade -y
 apt autoclean
 apt autopurge
 apt autoremove
+flatpak update org.gnome.Platform -y
+flatpak update org.kde.Platform -y
+flatpak update org.freedesktop.Platform -y
+flatpak update org.freedesktop.LinuxAudio.Plugins.TAP -y
+flatpak update org.freedesktop.LinuxAudio.Plugins.swh -y
 
 exit

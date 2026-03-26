@@ -14,4 +14,3 @@ rm -r -v -d -f ~/storage/shared/Android/media/com.whatsapp/WhatsApp/Media/'Whats
 rm -r -v -d -f ~/storage/shared/Android/media/com.whatsapp/WhatsApp/Media/'WhatsApp Video Notes'
 rm -r -v -d -f ~/storage/shared/Android/media/com.whatsapp/WhatsApp/Media/'WhatsApp Voice Notes'
 rm -r -v -d -f ~/storage/shared/Movies/WhatsApp
-

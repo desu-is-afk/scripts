@@ -2,29 +2,30 @@
 
 #update system
 echo "Updating system..."
-echo " "
+echo
 	apt update -qq
 	apt upgrade -y
 	apt autoremove -y
 	apt autopurge -y
 	apt autoclean -y
 
-echo " "
-echo " "
-echo " "
+echo
+echo  
+clear
+echo
 echo "System up-to-date!"
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 
 #apt
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 echo "Installing useful tools and features..."
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 
 	apt install vlc-bin -y
 	apt install tree -y
@@ -32,22 +33,23 @@ echo " "
 	apt install git -y
 	apt install gamemode -y
 
-echo " "
-echo " "
-echo " "
+echo  
+echo
+clear
+echo  
 echo "Useful features and tools installed!"
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 
 #apt uninstaller
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 echo "Uninstalling useless libs..."
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 
 	apt remove gnome-online-accounts-gtk -y
 	apt remove warpinator -y
@@ -61,46 +63,47 @@ echo " "
 	apt remove pix -y
 	apt remove pix-dbg -y
 
-echo " "
-echo " "
-echo " "
+echo  
+echo 
+clear
+echo  
 echo "Useless libs removed!"
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 
 #Flatpak
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 echo "Installing essentials and helpful flatpaks..."
-echo " "
+echo  
 echo "Choose always the STABLE and LATEST version!"
 echo "For example: For Wine, choose 7."
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 	flatpak install org.winehq.Wine
-echo ""
+echo 
 echo "For kde.Platform, choose 1.(Or latest)"
-echo ""
+echo 
 	flatpak install org.kde.Platform
-echo ""
+echo 
 echo "For gnome.PLatform, choose 19. (Or latest)"
-echo ""
+echo 
 	flatpak install org.gnome.Platform
-echo ""
+echo 
 echo "If Flatseal asks for version, choose the latest one."
-echo ""
+echo 
 	flatpak install com.github.tchx84.Flatseal
 
-echo " "
-echo " "
-echo " "
+echo  
+echo  
+echo  
 echo "Flatpaks installed!"
-echo " "
-echo " "
-echo " "
+echo  
+clear
+echo  
 echo "Everything done!"
 echo "Enjoy! :D"
-echo " "
+echo  

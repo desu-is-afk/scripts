@@ -1,9 +1,52 @@
 #!/bin/bash
 
-apt update -qq
-apt upgrade -y
-apt autoremove -y
-apt autoclean -y
-apt autopurge -y
+clear
+
+echo
+echo " UP-date SYS-tem "
+echo " By DESU "
+echo
+echo " Press Ctrl + C to cancel "
+echo " Starting UPSYS in three seconds... "
+
+sleep 3
+
+  echo
+  echo " !! Updating system..."
+  echo
+
+sudo apt update -qq
+
+clear
+
+  echo
+  echo " !! Upgrading system..."
+  echo
+
+sudo apt upgrade -y
+
+clear
+
+  echo
+  echo " !! Running automatic cleaner..."
+  echo
+
+sudo apt autoremove -y
+sudo apt autoclean -y
+sudo apt autopurge -y
+
+clear
+
+  echo
+  echo " !! Updating Flatpaks..."
+  echo
 
 flatpak update -y
+
+clear
+
+  echo  
+  echo " System full updated"
+  echo
+
+# exit

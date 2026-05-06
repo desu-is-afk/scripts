@@ -1,0 +1,85 @@
+#!/bin/bash
+
+# =============================================
+
+# Script: screen (lock | off | on) (null | all)
+
+# =============================================
+
+case "$1" in
+    lock)
+	# Lock all screens
+        cinnamon-screensaver-command --lock
+        echo
+	echo " Screen locked."
+	echo
+        ;;
+
+    off)
+    # Turn off ALL monitors.
+    if [ "$2" = "all" ]; then
+        for monitor in $(xrandr --query | grep " connected" | awk '{print $1}'); do
+		xrandr --output "$monitor" --off
+		echo
+		echo "All monitors turned off."
+		echo
+	done
+    else
+        # Turn off the main monitor.
+        monitor=$(xrandr --current | grep " connected" | awk '{print $1}' | head -n1)
+        xrandr --output "$monitor" --off
+	echo
+        echo " Main screen turned off."
+	echo
+	fi
+	;;
+
+    on)
+    # Turns on ALL monitors.
+	if [ "$2" = "all" ]; then
+		for monitor in $(xrandr --query | grep " connected" | awk '{print $1}'); do
+        		xrandr --output "$monitor" --auto
+			echo
+        		echo "All monitors turned on."
+			echo
+	done
+    else
+    	# Turn on the main monitor.
+        monitor=$(xrandr --current | grep " connected" | awk '{print $1}' | head -n1)
+        xrandr --output "$monitor" --auto
+	echo
+        echo " Screen turned on."
+	echo
+    fi
+    ;;
+
+    help|-h|--help)
+echo ""
+echo ""
+        echo " Commands:"
+        echo " Use: screen {option} {all} or null"
+	echo " Ex1.: screen off"
+	echo "	Just turn off the main monitor where terminal is running."
+echo ""
+	echo " Ex2.: screen {on/off} all"
+	echo "	Turn on/off ALL of your monitors."
+echo ""
+echo ""
+echo ""
+        echo "   screen lock             -> Locks your screen"
+        echo "   screen off              -> Turns off your monitor"
+        echo "   screen on               -> Turns on your monitor"
+        echo "   screen {option} all     -> Perform action to ALL monitors. "
+echo ""
+	echo " !! Lock option runs at all monitors as default."
+echo ""
+        ;;
+
+	*)
+echo ""
+	echo " Wrong command!"
+	echo " Run 'screen help' for help"
+echo ""
+	;;
+
+esac

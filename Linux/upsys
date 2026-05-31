@@ -2,51 +2,119 @@
 
 clear
 
+sudo echo
+
+DISTRO=$(grep "^ID=" /etc/os-release | cut -d'=' -f2)
+
 echo
 echo " UP-date SYS-tem "
 echo " By DESU "
-echo
+echo 
+echo "Visit: https://github.com/desu-is-afk for more projects"
+echo 
 echo " Press Ctrl + C to cancel "
 echo " Starting UPSYS in three seconds... "
+echo
 
-sleep 3
+sleep 4
 
-  echo
-  echo " !! Updating system..."
-  echo
+# RHEL | RHEL | RHEL | RHEL | RHEL | RHEL | RHEL | RHEL | RHEL | RHEL | RHEL | RHEL | RHEL | RHEL
 
-sudo apt update -qq
+case "$DISTRO" in
+    fedora|rhel|centos|rocky|almalinux)
 
-clear
+        echo "Detected: Red_Hat-Based (RHEL)"
+        echo
+        echo " !! Updating system..."
+        echo
 
-  echo
-  echo " !! Upgrading system..."
-  echo
+        sudo dnf up
 
-sudo apt upgrade -y
+        clear
+        echo
+        echo " !! Running automatic cleaner..."
+        echo
+        
+        sudo dnf autoremove	
+        clear
+        
+        echo  
+        echo " System full updated"
+        echo
+            ;;
 
-clear
+# DEBIAN | DEBIAN | DEBIAN | DEBIAN | DEBIAN | DEBIAN | DEBIAN | DEBIAN | DEBIAN | DEBIAN | DEBIAN
 
-  echo
-  echo " !! Running automatic cleaner..."
-  echo
+    ubuntu|linuxmint|pop|debian|kali)
 
-sudo apt autoremove -y
-sudo apt autoclean -y
-sudo apt autopurge -y
+        echo "Detected: Debian-Based"
+        echo
+        echo " !! Updating system..."
+        echo
+        
+        sudo apt update -qq
+        clear
 
-clear
+        echo
+        echo " !! Upgrading system..."
+        echo
 
-  echo
-  echo " !! Updating Flatpaks..."
-  echo
+        sudo apt upgrade -y
+        clear
 
-flatpak update -y
+        echo
+        echo " !! Running automatic cleaner..."
+        echo
 
-clear
+        sudo apt autoremove -y
+        sudo apt autoclean -y
+        sudo apt autopurge -y
 
-  echo  
-  echo " System full updated"
-  echo
+        clear
+        echo
+        echo " !! Updating Flatpaks..."
+        echo
 
+        flatpak update -y
+        
+        clear
+        echo  
+        echo " System full updated"
+        echo
+
+        ;;
+
+# ARCH | ARCH | ARCH | ARCH | ARCH | ARCH | ARCH | ARCH | ARCH | ARCH | ARCH | ARCH | ARCH | ARCH
+
+    arch|manjaro|endeavouros|garuda|cachyos)
+        
+        echo "Detected: Arch-Based"
+        echo
+        echo " Updating system..."
+
+        sudo pacman -Syu --noconfirm
+        clear
+
+        echo
+        echo " !! Running automatic cleaner..."
+        echo
+
+        sudo pacman -Rns $(pacman -Qdtq) --noconfirm
+        clear
+
+        echo
+        echo " !! Cleaning down-dated cache..."
+        echo
+
+        sudo pacman -Scc
+        clear
+        ;;
+# ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR 
+    
+    *)
+        echo " !!"
+        echo "Error: Distribuição não reconhecida: $DISTRO"
+        echo " !!"
+        ;;
+esac
 # exit

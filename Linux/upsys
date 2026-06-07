@@ -28,18 +28,31 @@ case "$DISTRO" in
         echo " !! Updating system..."
         echo
 
-        sudo dnf up
+        sudo dnf dsync -y
 
+        echo
+        echo " !! Updating softwares..."
+        echo
+
+        sudo dnf up -y
         clear
         echo
         echo " !! Running automatic cleaner..."
         echo
         
         sudo dnf autoremove	
+        sudo dnf clean
         clear
-        
+
+        echo
+        echo " !! Updating Flatpaks..."
+        echo
+
+        flatpak update -y
+        clear
+
         echo  
-        echo " System full updated"
+        echo " System full updated."
         echo
             ;;
 
@@ -79,7 +92,7 @@ case "$DISTRO" in
         
         clear
         echo  
-        echo " System full updated"
+        echo " System full updated."
         echo
 
         ;;
@@ -108,6 +121,10 @@ case "$DISTRO" in
 
         sudo pacman -Scc
         clear
+
+        echo
+        echo "System full Updated."
+        echo
         ;;
 # ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR | ERROR 
     

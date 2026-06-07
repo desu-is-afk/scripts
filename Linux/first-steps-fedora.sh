@@ -17,7 +17,6 @@ sudo dnf remove korganizer -y
 sudo dnf remove kontact -y
 sudo dnf remove kwallet -y
 sudo dnf remove kleopatra -y
-sudo dnf remove krfb -y
 sudo dnf remove kfind -y
 sudo dnf remove kmouth -y
 sudo dnf remove kamoso -y

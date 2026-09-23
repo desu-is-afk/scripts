@@ -1,0 +1,10 @@
+#!/bin/bash
+
+apt update -qq
+apt upgrade -y
+apt autoclean -y
+apt autoremove -y
+apt autopurge -y
+
+flatpak update
+

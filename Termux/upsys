@@ -1,10 +1,15 @@
 #!/bin/bash
 
-apt update -qq
+pkg update
+pkg upgrade -y
+pkg clean
+echo "Cache cleaned."
+
+apt update
 apt upgrade -y
-apt autoclean -y
-apt autoremove -y
 apt autopurge -y
+apt autoclean -y
 
-flatpak update
-
+echo
+echo " !! Terminal Full Updated."
+echo

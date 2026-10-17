@@ -1,0 +1,76 @@
+#!/bin/bash
+#apt
+echo  
+echo " !! Installing useful tools and features..."
+echo
+	apt install vlc-bin -y
+	apt install tree -y
+	apt install ssh -y
+	apt install git -y
+	apt install gamemode -y
+echo  
+echo
+clear
+echo  
+echo "Useful features and tools installed!" 
+
+#apt uninstaller
+echo  
+echo  
+echo  
+echo "Uninstalling useless libs..."
+echo  
+echo  
+echo  
+
+	apt remove gnome-online-accounts-gtk -y
+	apt remove warpinator -y
+	apt remove thunderbird -y
+	apt remove rhythmbox -y
+	apt remove hypnotix -y
+	apt remove thunar-data -y
+	apt remove mintchat -y
+	apt remove sticky -y
+	apt remove transmission-gtk -y
+	apt remove pix -y
+	apt remove pix-dbg -y
+clear
+echo  
+echo "Useless libs removed!"
+
+#Flatpak
+echo  
+echo  
+echo  
+echo "Installing essentials and helpful flatpaks..."
+echo  
+echo  
+echo  "If it asks for version, choose the latest one."
+	flatpak install org.winehq.Wine -y
+echo 
+echo "If Flatseal asks for version, choose the latest one."
+echo 
+	flatpak install com.github.tchx84.Flatseal -y
+
+echo  
+echo
+echo "Flatpaks installed!"  
+clear
+#update system
+echo "Updating system..."
+echo
+	apt update -qq
+	apt upgrade -y
+	apt autoremove -y
+	apt autopurge -y
+	apt autoclean -y
+
+echo
+echo  
+clear
+echo
+echo "System up-to-date!"
+echo  
+echo "Reboot system to set up changes."
+echo "Enjoy! :D"
+echo  

@@ -1,0 +1,59 @@
+#!/bin/bash
+
+sudo echo " !! Uninstalling unnecessary softwares..."
+
+# Unistaller
+sudo apt remove sticky -y
+sudo apt remove seahorse -y
+sudo apt remove warpinator -y
+sudo apt remove drawing -y
+sudo apt remove pix -y
+sudo apt remove mintchat -y
+sudo apt remove transmission-gtk -y
+sudo apt remove celluloid -y
+sudo apt remove hypnotix -y
+sudo apt remove rhythmbox -y
+sudo apt remove xfce4-dict -y
+sudo apt remove fingwit -y
+sudo apt remove system-config-printer -y
+sudo apt remove mintwelcome -y
+#apt
+echo  
+echo  
+echo  
+echo "Installing useful tools and features..."
+echo  
+echo  
+echo  
+
+	apt install vlc-bin -y
+	apt install tree -y
+	apt install ssh -y
+	apt install git -y
+	apt install gamemode -y
+clear
+echo  
+echo "Useful features and tools installed!"
+echo  
+echo  
+echo " !! Installing useful flatpaks..." 
+echo "If it asks for version, choose the latest one."
+flatpak install org.winehq.Wine -y
+flatpak install com.github.tchx84.Flatseal -y
+
+#update system
+echo
+echo "Updating system..."
+echo
+	apt update -qq
+	apt upgrade -y
+	apt autoremove -y
+	apt autopurge -y
+	apt autoclean -y
+echo
+echo  
+clear
+echo
+echo "System up-to-date!"
+echo
+echo "Reboot system to set up changes."
